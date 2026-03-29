@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marsoos Foundation – Rashan Drive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: #1a1a1a;
+      background: #f5f5f0;
+    }
+
+    nav {
+      background: #ffffff;
+      border-bottom: 0.5px solid rgba(0,0,0,0.12);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-box {
+      width: 34px; height: 34px; background: #3B6D11;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    }
+    .logo-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; }
+    .logo-tag { font-size: 10px; color: #666; letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-btn {
+      background: #3B6D11; color: #EAF3DE; border: none;
+      padding: 7px 16px; border-radius: 6px; font-size: 13px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+
+    .hero {
+      background: #ffffff; padding: 4rem 1.5rem 3rem;
+      text-align: center; border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    }
+    .badge {
+      display: inline-block; background: #EAF3DE; color: #3B6D11;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: 38px;
+      font-weight: 600; line-height: 1.25; margin-bottom: 1rem;
+    }
+    .hero h1 span { color: #3B6D11; }
+    .hero p {
+      font-size: 16px; color: #555; line-height: 1.7;
+      max-width: 520px; margin: 0 auto 2rem; font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; }
+    .btn-green {
+      background: #3B6D11; color: #EAF3DE; border: none;
+      padding: 10px 22px; border-radius: 6px; font-size: 14px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+    .btn-outline {
+      background: transparent; color: #1a1a1a;
+      border: 0.5px solid rgba(0,0,0,0.3);
+      padding: 10px 22px; border-radius: 6px; font-size: 14px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(0,0,0,0.1);
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    }
+    .stat { background: #ffffff; padding: 1.25rem; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: #3B6D11; }
+    .stat-lbl { font-size: 12px; color: #666; margin-top: 3px; }
+
+    .section { padding: 3rem 1.5rem; background: #f5f5f0; }
+    .section-alt { padding: 3rem 1.5rem; background: #ffffff; }
+    .sec-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #3B6D11; margin-bottom: 0.4rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; margin-bottom: 0.5rem; }
+    .sec-desc { font-size: 14px; color: #555; line-height: 1.7; max-width: 480px; margin-bottom: 2rem; font-weight: 300; }
+
+    .items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .item-card {
+      background: #ffffff; border: 0.5px solid rgba(0,0,0,0.1);
+      border-radius: 10px; padding: 1.2rem;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .item-icon {
+      width: 36px; height: 36px; background: #EAF3DE;
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 18px;
+    }
+    .item-card h4 { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .item-card p { font-size: 12px; color: #666; font-weight: 300; line-height: 1.5; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .how-card {
+      background: #f5f5f0; border: 0.5px solid rgba(0,0,0,0.1);
+      border-radius: 10px; padding: 1.2rem; text-align: center;
+    }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #3B6D11; color: #EAF3DE; font-size: 14px;
+      font-weight: 500; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 0.75rem;
+    }
+    .how-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .how-card p { font-size: 12px; color: #666; font-weight: 300; line-height: 1.5; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .member {
+      background: #f5f5f0; border: 0.5px solid rgba(0,0,0,0.1);
+      border-radius: 10px; padding: 1.2rem; text-align: center;
+    }
+    .avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #C0DD97; color: #3B6D11;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 500; margin: 0 auto 0.75rem;
+    }
+    .member h4 { font-size: 13px; font-weight: 500; }
+    .member p { font-size: 11px; color: #666; font-weight: 300; margin-top: 2px; }
+    .vol-badge {
+      display: inline-block; margin-top: 6px; background: #EAF3DE;
+      color: #3B6D11; font-size: 10px; padding: 2px 8px;
+      border-radius: 10px; font-weight: 500;
+    }
+
+    .cta { background: #27500A; padding: 3rem 1.5rem; text-align: center; }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: 26px; color: #EAF3DE; margin-bottom: 0.5rem; }
+    .cta p { font-size: 14px; color: #97C459; margin-bottom: 1.75rem; font-weight: 300; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; }
+    .btn-white {
+      background: #EAF3DE; color: #27500A; border: none;
+      padding: 10px 22px; border-radius: 6px; font-size: 14px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+    .btn-ghost {
+      background: transparent; color: #EAF3DE;
+      border: 0.5px solid #639922;
+      padding: 10px 22px; border-radius: 6px; font-size: 14px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+
+    footer {
+      background: #ffffff; border-top: 0.5px solid rgba(0,0,0,0.1);
+      padding: 1.5rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    footer p { font-size: 12px; color: #888; }
+    .footer-note { font-size: 11px; color: #888; display: flex; align-items: center; gap: 6px; }
+    .heart { color: #639922; font-size: 13px; }
+
+    @media (max-width: 640px) {
+      .items-grid { grid-template-columns: 1fr 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-box">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2C6 2 3 4.5 3 8c0 2 1 3.5 2.5 4.5L9 15l3.5-2.5C14 11.5 15 10 15 8c0-3.5-3-6-6-6z" fill="#EAF3DE"/>
+          <path d="M7 8h4M9 6v4" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-name">Marsoos Foundation</div>
+        <div class="logo-tag">Rashan Drive · Lahore</div>
+      </div>
+    </div>
+    <button class="nav-btn">Donate groceries ↗</button>
+  </nav>
+
+  <section class="hero">
+    <div class="badge">Student-led · Community initiative</div>
+    <h1>Delivering <span>rashan</span> to families<br/>who need it most</h1>
+    <p>Marsoos Foundation is a student-led initiative distributing essential grocery items to needy families in our community. Every bag of rashan we give brings dignity and relief to a household.</p>
+    <div class="hero-btns">
+      <button class="btn-green">Support our drive ↗</button>
+      <button class="btn-outline">Our story</button>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-lbl">Founding members</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-lbl">City, growing fast</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-lbl">Hearts to help</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="sec-label">What we give</div>
+    <div class="sec-title">What's in a rashan bag?</div>
+    <div class="sec-desc">Each bag is packed with basic grocery essentials — enough to support a family for a week or more.</div>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-icon">🌾</div>
+        <div><h4>Flour (atta)</h4><p>5–10 kg of wheat flour, the foundation of every meal.</p></div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🍚</div>
+        <div><h4>Rice (chawal)</h4><p>2–5 kg of rice for a family's daily cooking needs.</p></div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🫘</div>
+        <div><h4>Lentils (daal)</h4><p>Assorted lentils — masoor, moong, chana — for protein.</p></div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🧴</div>
+        <div><h4>Cooking oil</h4><p>1–2 litres of cooking oil for everyday use.</p></div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🧂</div>
+        <div><h4>Salt & spices</h4><p>Basic seasonings so every meal can have flavour.</p></div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🍵</div>
+        <div><h4>Tea & sugar</h4><p>Chai is essential — we make sure families have it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="sec-label">How it works</div>
+    <div class="sec-title">Our simple process</div>
+    <div class="sec-desc">We keep things transparent and straightforward — from collection to delivery.</div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="step-num">1</div>
+        <h4>Collect donations</h4>
+        <p>We collect cash or grocery items from supporters in our network.</p>
+      </div>
+      <div class="how-card">
+        <div class="step-num">2</div>
+        <h4>Pack the bags</h4>
+        <p>Our team packs rashan bags together, ensuring each family gets a fair share.</p>
+      </div>
+      <div class="how-card">
+        <div class="step-num">3</div>
+        <h4>Find families</h4>
+        <p>We identify genuinely needy families through trusted community members.</p>
+      </div>
+      <div class="how-card">
+        <div class="step-num">4</div>
+        <h4>Deliver with dignity</h4>
+        <p>We deliver personally, with respect and care for every family we visit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-label">Our team</div>
+    <div class="sec-title">Students making a difference</div>
+    <div class="sec-desc">We are a small group of students who believe that even with limited resources, we can bring real change to our community.</div>
+    <div class="team-grid">
+      <div class="member">
+        <div class="avatar">F</div>
+        <h4>Founder</h4>
+        <p>Vision & leadership</p>
+        <span class="vol-badge">Student</span>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:#FAC775;color:#854F0B">M</div>
+        <h4>Co-founder</h4>
+        <p>Logistics & packing</p>
+        <span class="vol-badge" style="background:#FAEEDA;color:#854F0B">Student</span>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:#B5D4F4;color:#0C447C">M</div>
+        <h4>Co-founder</h4>
+        <p>Outreach & families</p>
+        <span class="vol-badge" style="background:#E6F1FB;color:#0C447C">Student</span>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:#F4C0D1;color:#993556">M</div>
+        <h4>Co-founder</h4>
+        <p>Social media & donors</p>
+        <span class="vol-badge" style="background:#FBEAF0;color:#993556">Student</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Help us fill the next bag</h2>
+    <p>Even a small contribution — Rs. 500 or a bag of atta — can feed a family for days.</p>
+    <div class="cta-btns">
+      <button class="btn-white">Donate now</button>
+      <button class="btn-ghost">Volunteer with us ↗</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Marsoos Foundation</p>
+    <div class="footer-note"><span class="heart">♥</span> Made with purpose by students, for community</div>
+  </footer>
+
+</body>
+</html>
